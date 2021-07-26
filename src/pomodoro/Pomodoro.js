@@ -88,10 +88,6 @@ function Pomodoro() {
     return 100 - (time / (displayDuration(label) * 60)) * 100;
   };
   const updatedAria = updateAria(session?.timeRemaining, session?.label);
-  // const handleStopSession = () => {
-  //   setFocusDuration(25);
-  //   setBreakDuration(5);
-  // };
 
   /**
    * Custom hook that invokes the callback function every second
@@ -106,7 +102,7 @@ function Pomodoro() {
       }
       return setSession(nextTick);
     },
-    isTimerRunning ? 100 : null
+    isTimerRunning ? 1000 : null
   );
 
   /**
