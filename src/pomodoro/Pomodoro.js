@@ -54,7 +54,6 @@ function Pomodoro() {
   // The current session - null where there is no session running
   const [session, setSession] = useState(null);
 
-  // ToDo: Allow the user to adjust the focus and break duration.
   const [focusDuration, setFocusDuration] = useState(25);
   const [breakDuration, setBreakDuration] = useState(5);
 
@@ -102,12 +101,12 @@ function Pomodoro() {
   useInterval(
     () => {
       if (session.timeRemaining === 0) {
-        //new Audio("https://bigsoundbank.com/UPLOAD/mp3/1482.mp3").play();
+        new Audio("https://bigsoundbank.com/UPLOAD/mp3/1482.mp3").play();
         return setSession(nextSession(focusDuration, breakDuration));
       }
       return setSession(nextTick);
     },
-    isTimerRunning ? 1000 : null
+    isTimerRunning ? 100 : null
   );
 
   /**
